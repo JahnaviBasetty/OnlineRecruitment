@@ -1,0 +1,81 @@
+﻿@model IEnumerable<OnlineRecruitment.Models.Student>
+@using OnlineRecruitment.Models
+@{
+    ViewBag.Title = "Selected_students";
+}
+
+<h3>Selected Applicants</h3>
+
+<table class="table">
+    <tr>
+        <th>
+            First Name
+        </th>
+        <th>
+            Last Name
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Mobile Number
+        </th>
+        <th>
+            Percentage
+        </th>
+        <th>
+            Test Marks
+        </th>
+        <th>
+            Interview Marks
+        </th>
+        <th>
+            Status
+        </th>
+        <th>
+            Role
+        </th>
+
+        <th></th>
+
+    </tr>
+
+    @if (Model != null)
+    {
+        foreach (var student in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => student.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => student.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => student.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => student.MobileNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => student.Percentage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => student.TestMarks)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => student.InterviewMarks)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => student.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => student.Role)
+                </td>
+            </tr>
+        }
+    }
+
+    @Html.ActionLink("Back","Status")
+
+</table>

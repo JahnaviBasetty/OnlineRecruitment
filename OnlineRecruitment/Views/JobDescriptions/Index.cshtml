@@ -1,0 +1,59 @@
+﻿@model IEnumerable<OnlineRecruitment.Models.JobDescription>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Job Details</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")<br />
+    @Html.ActionLink("Student Profile", "Index", "profiles")<br />
+    @Html.ActionLink("Shortlist Details", "Index", "Students")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Role)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Salary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Skills)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Type)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Role)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Salary)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Skills)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Type)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.JobId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.JobId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.JobId })
+        </td>
+    </tr>
+}
+
+</table>
